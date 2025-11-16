@@ -88,6 +88,7 @@ import makeWASocket from '@itsukichan/baileys'
 - [Handling Events](#handling-events)
     - [Example to Start](#example-to-start)
     - [Decrypt Poll Votes](#decrypt-poll-votes)
+    - [Decrypt Event Response](#decrypt-event-response) 
     - [Summary of Events on First Connection](#summary-of-events-on-first-connection)
 - [Implementing a Data Store](#implementing-a-data-store)
 - [Whatsapp IDs Explain](#whatsapp-ids-explain)
