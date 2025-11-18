@@ -101,6 +101,12 @@ export namespace Wa6 {
 
         /** ClientPayload paaLink */
         paaLink?: (boolean|null);
+
+        /** ClientPayload preacksCount */
+        preacksCount?: (number|null);
+
+        /** ClientPayload processingQueueSize */
+        processingQueueSize?: (number|null);
     }
 
     /** Represents a ClientPayload. */
@@ -208,6 +214,12 @@ export namespace Wa6 {
         /** ClientPayload paaLink. */
         public paaLink?: (boolean|null);
 
+        /** ClientPayload preacksCount. */
+        public preacksCount?: (number|null);
+
+        /** ClientPayload processingQueueSize. */
+        public processingQueueSize?: (number|null);
+
         /** ClientPayload _username. */
         public _username?: "username";
 
@@ -300,6 +312,12 @@ export namespace Wa6 {
 
         /** ClientPayload _paaLink. */
         public _paaLink?: "paaLink";
+
+        /** ClientPayload _preacksCount. */
+        public _preacksCount?: "preacksCount";
+
+        /** ClientPayload _processingQueueSize. */
+        public _processingQueueSize?: "processingQueueSize";
 
         /**
          * Creates a new ClientPayload instance using the specified properties.
@@ -1262,7 +1280,8 @@ export namespace Wa6 {
                 IPAD = 33,
                 TEST = 34,
                 SMART_GLASSES = 35,
-                BLUE_VR = 36
+                BLUE_VR = 36,
+                AR_WRIST = 37
             }
 
             /** ReleaseChannel enum. */

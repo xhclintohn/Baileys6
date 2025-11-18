@@ -401,7 +401,9 @@ export namespace StatusAttributions {
                 YOUTUBE = 5,
                 PINTEREST = 6,
                 THREADS = 7,
-                APPLE_MUSIC = 8
+                APPLE_MUSIC = 8,
+                SHARECHAT = 9,
+                GOOGLE_PHOTOS = 10
             }
         }
 
@@ -1018,7 +1020,8 @@ export namespace StatusAttributions {
             STATUS_MENTION = 4,
             GROUP_STATUS = 5,
             RL_ATTRIBUTION = 6,
-            AI_CREATED = 7
+            AI_CREATED = 7,
+            LAYOUTS = 8
         }
     }
 }

@@ -5941,9 +5941,6 @@ export namespace E2E {
         /** EmbeddedMusic artworkEncSha256 */
         artworkEncSha256?: (Uint8Array|null);
 
-        /** EmbeddedMusic artworkMediaKey */
-        artworkMediaKey?: (Uint8Array|null);
-
         /** EmbeddedMusic artistAttribution */
         artistAttribution?: (string|null);
 
@@ -5952,6 +5949,18 @@ export namespace E2E {
 
         /** EmbeddedMusic isExplicit */
         isExplicit?: (boolean|null);
+
+        /** EmbeddedMusic artworkMediaKey */
+        artworkMediaKey?: (Uint8Array|null);
+
+        /** EmbeddedMusic musicSongStartTimeInMs */
+        musicSongStartTimeInMs?: (number|Long|null);
+
+        /** EmbeddedMusic derivedContentStartTimeInMs */
+        derivedContentStartTimeInMs?: (number|Long|null);
+
+        /** EmbeddedMusic overlapDurationInMs */
+        overlapDurationInMs?: (number|Long|null);
     }
 
     /** Represents an EmbeddedMusic. */
@@ -5984,9 +5993,6 @@ export namespace E2E {
         /** EmbeddedMusic artworkEncSha256. */
         public artworkEncSha256: Uint8Array;
 
-        /** EmbeddedMusic artworkMediaKey. */
-        public artworkMediaKey: Uint8Array;
-
         /** EmbeddedMusic artistAttribution. */
         public artistAttribution: string;
 
@@ -5995,6 +6001,18 @@ export namespace E2E {
 
         /** EmbeddedMusic isExplicit. */
         public isExplicit: boolean;
+
+        /** EmbeddedMusic artworkMediaKey. */
+        public artworkMediaKey: Uint8Array;
+
+        /** EmbeddedMusic musicSongStartTimeInMs. */
+        public musicSongStartTimeInMs: (number|Long);
+
+        /** EmbeddedMusic derivedContentStartTimeInMs. */
+        public derivedContentStartTimeInMs: (number|Long);
+
+        /** EmbeddedMusic overlapDurationInMs. */
+        public overlapDurationInMs: (number|Long);
 
         /**
          * Creates a new EmbeddedMusic instance using the specified properties.
@@ -6749,7 +6767,9 @@ export namespace E2E {
             VIEW_ALL_REPLIES = 14,
             STATUS_ADD_YOURS_AI_IMAGINE = 15,
             STATUS_QUESTION = 16,
-            STATUS_ADD_YOURS_DIWALI = 17
+            STATUS_ADD_YOURS_DIWALI = 17,
+            STATUS_REACTION = 18,
+            HEVC_VIDEO_DUAL_UPLOAD = 19
         }
     }
 
@@ -6917,6 +6937,9 @@ export namespace E2E {
 
         /** ContextInfo quotedType */
         quotedType?: (E2E.ContextInfo.QuotedType|null);
+
+        /** ContextInfo botMessageSharingInfo */
+        botMessageSharingInfo?: (AICommon.IBotMessageSharingInfo|null);
     }
 
     /** Represents a ContextInfo. */
@@ -7089,6 +7112,9 @@ export namespace E2E {
 
         /** ContextInfo quotedType. */
         public quotedType: E2E.ContextInfo.QuotedType;
+
+        /** ContextInfo botMessageSharingInfo. */
+        public botMessageSharingInfo?: (AICommon.IBotMessageSharingInfo|null);
 
         /**
          * Creates a new ContextInfo instance using the specified properties.
@@ -8176,7 +8202,9 @@ export namespace E2E {
             SD_IMAGE_PARENT = 3,
             HD_IMAGE_CHILD = 4,
             MOTION_PHOTO_PARENT = 5,
-            MOTION_PHOTO_CHILD = 6
+            MOTION_PHOTO_CHILD = 6,
+            HEVC_VIDEO_PARENT = 7,
+            HEVC_VIDEO_CHILD = 8
         }
 
         /** Properties of a QuestionReplyQuotedMessage. */
@@ -8757,9 +8785,6 @@ export namespace E2E {
         /** Message pollCreationMessageV4 */
         pollCreationMessageV4?: (E2E.Message.IFutureProofMessage|null);
 
-        /** Message pollCreationMessageV5 */
-        pollCreationMessageV5?: (E2E.Message.IFutureProofMessage|null);
-
         /** Message statusAddYours */
         statusAddYours?: (E2E.Message.IFutureProofMessage|null);
 
@@ -8804,6 +8829,21 @@ export namespace E2E {
 
         /** Message statusQuotedMessage */
         statusQuotedMessage?: (E2E.Message.IStatusQuotedMessage|null);
+
+        /** Message statusStickerInteractionMessage */
+        statusStickerInteractionMessage?: (E2E.Message.IStatusStickerInteractionMessage|null);
+
+        /** Message pollCreationMessageV5 */
+        pollCreationMessageV5?: (E2E.Message.IPollCreationMessage|null);
+
+        /** Message pollResultSnapshotMessageV2 */
+        pollResultSnapshotMessageV2?: (E2E.Message.IPollResultSnapshotMessage|null);
+
+        /** Message newsletterFollowerInviteMessageV2 */
+        newsletterFollowerInviteMessageV2?: (E2E.Message.INewsletterFollowerInviteMessage|null);
+
+        /** Message requestContactInfoMessage */
+        requestContactInfoMessage?: (E2E.Message.IRequestContactInfoMessage|null);
     }
 
     /** Represents a Message. */
@@ -9046,9 +9086,6 @@ export namespace E2E {
         /** Message pollCreationMessageV4. */
         public pollCreationMessageV4?: (E2E.Message.IFutureProofMessage|null);
 
-        /** Message pollCreationMessageV5. */
-        public pollCreationMessageV5?: (E2E.Message.IFutureProofMessage|null);
-
         /** Message statusAddYours. */
         public statusAddYours?: (E2E.Message.IFutureProofMessage|null);
 
@@ -9093,6 +9130,21 @@ export namespace E2E {
 
         /** Message statusQuotedMessage. */
         public statusQuotedMessage?: (E2E.Message.IStatusQuotedMessage|null);
+
+        /** Message statusStickerInteractionMessage. */
+        public statusStickerInteractionMessage?: (E2E.Message.IStatusStickerInteractionMessage|null);
+
+        /** Message pollCreationMessageV5. */
+        public pollCreationMessageV5?: (E2E.Message.IPollCreationMessage|null);
+
+        /** Message pollResultSnapshotMessageV2. */
+        public pollResultSnapshotMessageV2?: (E2E.Message.IPollResultSnapshotMessage|null);
+
+        /** Message newsletterFollowerInviteMessageV2. */
+        public newsletterFollowerInviteMessageV2?: (E2E.Message.INewsletterFollowerInviteMessage|null);
+
+        /** Message requestContactInfoMessage. */
+        public requestContactInfoMessage?: (E2E.Message.IRequestContactInfoMessage|null);
 
         /**
          * Creates a new Message instance using the specified properties.
@@ -13210,6 +13262,9 @@ export namespace E2E {
 
             /** ExtendedTextMessage musicMetadata */
             musicMetadata?: (E2E.IEmbeddedMusic|null);
+
+            /** ExtendedTextMessage paymentExtendedMetadata */
+            paymentExtendedMetadata?: (E2E.Message.IPaymentExtendedMetadata|null);
         }
 
         /** Represents an ExtendedTextMessage. */
@@ -13313,6 +13368,9 @@ export namespace E2E {
 
             /** ExtendedTextMessage musicMetadata. */
             public musicMetadata?: (E2E.IEmbeddedMusic|null);
+
+            /** ExtendedTextMessage paymentExtendedMetadata. */
+            public paymentExtendedMetadata?: (E2E.Message.IPaymentExtendedMetadata|null);
 
             /**
              * Creates a new ExtendedTextMessage instance using the specified properties.
@@ -15544,6 +15602,12 @@ export namespace E2E {
 
                 /** Footer text */
                 text?: (string|null);
+
+                /** Footer hasMediaAttachment */
+                hasMediaAttachment?: (boolean|null);
+
+                /** Footer audioMessage */
+                audioMessage?: (E2E.Message.IAudioMessage|null);
             }
 
             /** Represents a Footer. */
@@ -15557,6 +15621,15 @@ export namespace E2E {
 
                 /** Footer text. */
                 public text: string;
+
+                /** Footer hasMediaAttachment. */
+                public hasMediaAttachment: boolean;
+
+                /** Footer audioMessage. */
+                public audioMessage?: (E2E.Message.IAudioMessage|null);
+
+                /** Footer media. */
+                public media?: "audioMessage";
 
                 /**
                  * Creates a new Footer instance using the specified properties.
@@ -16745,6 +16818,15 @@ export namespace E2E {
 
             /** LinkPreviewMetadata linkInlineVideoMuted */
             linkInlineVideoMuted?: (boolean|null);
+
+            /** LinkPreviewMetadata videoContentUrl */
+            videoContentUrl?: (string|null);
+
+            /** LinkPreviewMetadata musicMetadata */
+            musicMetadata?: (E2E.IEmbeddedMusic|null);
+
+            /** LinkPreviewMetadata videoContentCaption */
+            videoContentCaption?: (string|null);
         }
 
         /** Represents a LinkPreviewMetadata. */
@@ -16773,6 +16855,15 @@ export namespace E2E {
 
             /** LinkPreviewMetadata linkInlineVideoMuted. */
             public linkInlineVideoMuted: boolean;
+
+            /** LinkPreviewMetadata videoContentUrl. */
+            public videoContentUrl: string;
+
+            /** LinkPreviewMetadata musicMetadata. */
+            public musicMetadata?: (E2E.IEmbeddedMusic|null);
+
+            /** LinkPreviewMetadata videoContentCaption. */
+            public videoContentCaption: string;
 
             /**
              * Creates a new LinkPreviewMetadata instance using the specified properties.
@@ -19122,6 +19213,115 @@ export namespace E2E {
             }
         }
 
+        /** Properties of a PaymentExtendedMetadata. */
+        interface IPaymentExtendedMetadata {
+
+            /** PaymentExtendedMetadata type */
+            type?: (number|null);
+
+            /** PaymentExtendedMetadata platform */
+            platform?: (string|null);
+
+            /** PaymentExtendedMetadata messageParamsJson */
+            messageParamsJson?: (string|null);
+        }
+
+        /** Represents a PaymentExtendedMetadata. */
+        class PaymentExtendedMetadata implements IPaymentExtendedMetadata {
+
+            /**
+             * Constructs a new PaymentExtendedMetadata.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: E2E.Message.IPaymentExtendedMetadata);
+
+            /** PaymentExtendedMetadata type. */
+            public type: number;
+
+            /** PaymentExtendedMetadata platform. */
+            public platform: string;
+
+            /** PaymentExtendedMetadata messageParamsJson. */
+            public messageParamsJson: string;
+
+            /**
+             * Creates a new PaymentExtendedMetadata instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns PaymentExtendedMetadata instance
+             */
+            public static create(properties?: E2E.Message.IPaymentExtendedMetadata): E2E.Message.PaymentExtendedMetadata;
+
+            /**
+             * Encodes the specified PaymentExtendedMetadata message. Does not implicitly {@link E2E.Message.PaymentExtendedMetadata.verify|verify} messages.
+             * @param message PaymentExtendedMetadata message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: E2E.Message.IPaymentExtendedMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified PaymentExtendedMetadata message, length delimited. Does not implicitly {@link E2E.Message.PaymentExtendedMetadata.verify|verify} messages.
+             * @param message PaymentExtendedMetadata message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: E2E.Message.IPaymentExtendedMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a PaymentExtendedMetadata message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns PaymentExtendedMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.Message.PaymentExtendedMetadata;
+
+            /**
+             * Decodes a PaymentExtendedMetadata message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns PaymentExtendedMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.Message.PaymentExtendedMetadata;
+
+            /**
+             * Verifies a PaymentExtendedMetadata message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a PaymentExtendedMetadata message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns PaymentExtendedMetadata
+             */
+            public static fromObject(object: { [k: string]: any }): E2E.Message.PaymentExtendedMetadata;
+
+            /**
+             * Creates a plain object from a PaymentExtendedMetadata message. Also converts values to other types if specified.
+             * @param message PaymentExtendedMetadata
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: E2E.Message.PaymentExtendedMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this PaymentExtendedMetadata to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for PaymentExtendedMetadata
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
         /** Properties of a PaymentInviteMessage. */
         interface IPaymentInviteMessage {
 
@@ -19674,6 +19874,9 @@ export namespace E2E {
 
             /** PeerDataOperationRequestMessage historySyncChunkRetryRequest */
             historySyncChunkRetryRequest?: (E2E.Message.PeerDataOperationRequestMessage.IHistorySyncChunkRetryRequest|null);
+
+            /** PeerDataOperationRequestMessage galaxyFlowAction */
+            galaxyFlowAction?: (E2E.Message.PeerDataOperationRequestMessage.IGalaxyFlowAction|null);
         }
 
         /** Represents a PeerDataOperationRequestMessage. */
@@ -19708,6 +19911,9 @@ export namespace E2E {
 
             /** PeerDataOperationRequestMessage historySyncChunkRetryRequest. */
             public historySyncChunkRetryRequest?: (E2E.Message.PeerDataOperationRequestMessage.IHistorySyncChunkRetryRequest|null);
+
+            /** PeerDataOperationRequestMessage galaxyFlowAction. */
+            public galaxyFlowAction?: (E2E.Message.PeerDataOperationRequestMessage.IGalaxyFlowAction|null);
 
             /**
              * Creates a new PeerDataOperationRequestMessage instance using the specified properties.
@@ -19890,6 +20096,123 @@ export namespace E2E {
                  * @returns The default type url
                  */
                 public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+
+            /** Properties of a GalaxyFlowAction. */
+            interface IGalaxyFlowAction {
+
+                /** GalaxyFlowAction type */
+                type: E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction.GalaxyFlowActionType;
+
+                /** GalaxyFlowAction flowId */
+                flowId: string;
+
+                /** GalaxyFlowAction stanzaId */
+                stanzaId: string;
+            }
+
+            /** Represents a GalaxyFlowAction. */
+            class GalaxyFlowAction implements IGalaxyFlowAction {
+
+                /**
+                 * Constructs a new GalaxyFlowAction.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: E2E.Message.PeerDataOperationRequestMessage.IGalaxyFlowAction);
+
+                /** GalaxyFlowAction type. */
+                public type: E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction.GalaxyFlowActionType;
+
+                /** GalaxyFlowAction flowId. */
+                public flowId: string;
+
+                /** GalaxyFlowAction stanzaId. */
+                public stanzaId: string;
+
+                /**
+                 * Creates a new GalaxyFlowAction instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns GalaxyFlowAction instance
+                 */
+                public static create(properties?: E2E.Message.PeerDataOperationRequestMessage.IGalaxyFlowAction): E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction;
+
+                /**
+                 * Encodes the specified GalaxyFlowAction message. Does not implicitly {@link E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction.verify|verify} messages.
+                 * @param message GalaxyFlowAction message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: E2E.Message.PeerDataOperationRequestMessage.IGalaxyFlowAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified GalaxyFlowAction message, length delimited. Does not implicitly {@link E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction.verify|verify} messages.
+                 * @param message GalaxyFlowAction message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: E2E.Message.PeerDataOperationRequestMessage.IGalaxyFlowAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a GalaxyFlowAction message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns GalaxyFlowAction
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction;
+
+                /**
+                 * Decodes a GalaxyFlowAction message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns GalaxyFlowAction
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction;
+
+                /**
+                 * Verifies a GalaxyFlowAction message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a GalaxyFlowAction message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns GalaxyFlowAction
+                 */
+                public static fromObject(object: { [k: string]: any }): E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction;
+
+                /**
+                 * Creates a plain object from a GalaxyFlowAction message. Also converts values to other types if specified.
+                 * @param message GalaxyFlowAction
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: E2E.Message.PeerDataOperationRequestMessage.GalaxyFlowAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this GalaxyFlowAction to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for GalaxyFlowAction
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+
+            namespace GalaxyFlowAction {
+
+                /** GalaxyFlowActionType enum. */
+                enum GalaxyFlowActionType {
+                    NOTIFY_LAUNCH = 1
+                }
             }
 
             /** Properties of a HistorySyncChunkRetryRequest. */
@@ -21945,7 +22268,8 @@ export namespace E2E {
             COMPANION_META_NONCE_FETCH = 7,
             COMPANION_SYNCD_SNAPSHOT_FATAL_RECOVERY = 8,
             COMPANION_CANONICAL_USER_NONCE_FETCH = 9,
-            HISTORY_SYNC_CHUNK_RETRY = 10
+            HISTORY_SYNC_CHUNK_RETRY = 10,
+            GALAXY_FLOW_ACTION = 11
         }
 
         /** Properties of a PinInChatMessage. */
@@ -22201,7 +22525,7 @@ export namespace E2E {
             pollContentType?: (E2E.Message.PollContentType|null);
 
             /** PollCreationMessage pollType */
-            pollType?: (E2E.Message.PollCreationMessage.PollType|null);
+            pollType?: (E2E.Message.PollType|null);
 
             /** PollCreationMessage correctAnswer */
             correctAnswer?: (E2E.Message.PollCreationMessage.IOption|null);
@@ -22235,7 +22559,7 @@ export namespace E2E {
             public pollContentType: E2E.Message.PollContentType;
 
             /** PollCreationMessage pollType. */
-            public pollType: E2E.Message.PollCreationMessage.PollType;
+            public pollType: E2E.Message.PollType;
 
             /** PollCreationMessage correctAnswer. */
             public correctAnswer?: (E2E.Message.PollCreationMessage.IOption|null);
@@ -22422,12 +22746,6 @@ export namespace E2E {
                  */
                 public static getTypeUrl(typeUrlPrefix?: string): string;
             }
-
-            /** PollType enum. */
-            enum PollType {
-                POLL = 0,
-                QUIZ = 1
-            }
         }
 
         /** Properties of a PollEncValue. */
@@ -22544,6 +22862,9 @@ export namespace E2E {
 
             /** PollResultSnapshotMessage contextInfo */
             contextInfo?: (E2E.IContextInfo|null);
+
+            /** PollResultSnapshotMessage pollType */
+            pollType?: (E2E.Message.PollType|null);
         }
 
         /** Represents a PollResultSnapshotMessage. */
@@ -22563,6 +22884,9 @@ export namespace E2E {
 
             /** PollResultSnapshotMessage contextInfo. */
             public contextInfo?: (E2E.IContextInfo|null);
+
+            /** PollResultSnapshotMessage pollType. */
+            public pollType: E2E.Message.PollType;
 
             /**
              * Creates a new PollResultSnapshotMessage instance using the specified properties.
@@ -22746,6 +23070,12 @@ export namespace E2E {
                  */
                 public static getTypeUrl(typeUrlPrefix?: string): string;
             }
+        }
+
+        /** PollType enum. */
+        enum PollType {
+            POLL = 0,
+            QUIZ = 1
         }
 
         /** Properties of a PollUpdateMessage. */
@@ -23933,6 +24263,115 @@ export namespace E2E {
 
             /**
              * Gets the default type url for ReactionMessage
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a RequestContactInfoMessage. */
+        interface IRequestContactInfoMessage {
+
+            /** RequestContactInfoMessage text */
+            text?: (string|null);
+
+            /** RequestContactInfoMessage ctaButtonText */
+            ctaButtonText?: (string|null);
+
+            /** RequestContactInfoMessage contextInfo */
+            contextInfo?: (E2E.IContextInfo|null);
+        }
+
+        /** Represents a RequestContactInfoMessage. */
+        class RequestContactInfoMessage implements IRequestContactInfoMessage {
+
+            /**
+             * Constructs a new RequestContactInfoMessage.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: E2E.Message.IRequestContactInfoMessage);
+
+            /** RequestContactInfoMessage text. */
+            public text: string;
+
+            /** RequestContactInfoMessage ctaButtonText. */
+            public ctaButtonText: string;
+
+            /** RequestContactInfoMessage contextInfo. */
+            public contextInfo?: (E2E.IContextInfo|null);
+
+            /**
+             * Creates a new RequestContactInfoMessage instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RequestContactInfoMessage instance
+             */
+            public static create(properties?: E2E.Message.IRequestContactInfoMessage): E2E.Message.RequestContactInfoMessage;
+
+            /**
+             * Encodes the specified RequestContactInfoMessage message. Does not implicitly {@link E2E.Message.RequestContactInfoMessage.verify|verify} messages.
+             * @param message RequestContactInfoMessage message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: E2E.Message.IRequestContactInfoMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RequestContactInfoMessage message, length delimited. Does not implicitly {@link E2E.Message.RequestContactInfoMessage.verify|verify} messages.
+             * @param message RequestContactInfoMessage message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: E2E.Message.IRequestContactInfoMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RequestContactInfoMessage message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RequestContactInfoMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.Message.RequestContactInfoMessage;
+
+            /**
+             * Decodes a RequestContactInfoMessage message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RequestContactInfoMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.Message.RequestContactInfoMessage;
+
+            /**
+             * Verifies a RequestContactInfoMessage message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RequestContactInfoMessage message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RequestContactInfoMessage
+             */
+            public static fromObject(object: { [k: string]: any }): E2E.Message.RequestContactInfoMessage;
+
+            /**
+             * Creates a plain object from a RequestContactInfoMessage message. Also converts values to other types if specified.
+             * @param message RequestContactInfoMessage
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: E2E.Message.RequestContactInfoMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RequestContactInfoMessage to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for RequestContactInfoMessage
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
@@ -25192,6 +25631,124 @@ export namespace E2E {
             /** StatusQuotedMessageType enum. */
             enum StatusQuotedMessageType {
                 QUESTION_ANSWER = 1
+            }
+        }
+
+        /** Properties of a StatusStickerInteractionMessage. */
+        interface IStatusStickerInteractionMessage {
+
+            /** StatusStickerInteractionMessage key */
+            key?: (Protocol.IMessageKey|null);
+
+            /** StatusStickerInteractionMessage stickerKey */
+            stickerKey?: (string|null);
+
+            /** StatusStickerInteractionMessage type */
+            type?: (E2E.Message.StatusStickerInteractionMessage.StatusStickerType|null);
+        }
+
+        /** Represents a StatusStickerInteractionMessage. */
+        class StatusStickerInteractionMessage implements IStatusStickerInteractionMessage {
+
+            /**
+             * Constructs a new StatusStickerInteractionMessage.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: E2E.Message.IStatusStickerInteractionMessage);
+
+            /** StatusStickerInteractionMessage key. */
+            public key?: (Protocol.IMessageKey|null);
+
+            /** StatusStickerInteractionMessage stickerKey. */
+            public stickerKey: string;
+
+            /** StatusStickerInteractionMessage type. */
+            public type: E2E.Message.StatusStickerInteractionMessage.StatusStickerType;
+
+            /**
+             * Creates a new StatusStickerInteractionMessage instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns StatusStickerInteractionMessage instance
+             */
+            public static create(properties?: E2E.Message.IStatusStickerInteractionMessage): E2E.Message.StatusStickerInteractionMessage;
+
+            /**
+             * Encodes the specified StatusStickerInteractionMessage message. Does not implicitly {@link E2E.Message.StatusStickerInteractionMessage.verify|verify} messages.
+             * @param message StatusStickerInteractionMessage message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: E2E.Message.IStatusStickerInteractionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified StatusStickerInteractionMessage message, length delimited. Does not implicitly {@link E2E.Message.StatusStickerInteractionMessage.verify|verify} messages.
+             * @param message StatusStickerInteractionMessage message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: E2E.Message.IStatusStickerInteractionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a StatusStickerInteractionMessage message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns StatusStickerInteractionMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): E2E.Message.StatusStickerInteractionMessage;
+
+            /**
+             * Decodes a StatusStickerInteractionMessage message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns StatusStickerInteractionMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): E2E.Message.StatusStickerInteractionMessage;
+
+            /**
+             * Verifies a StatusStickerInteractionMessage message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a StatusStickerInteractionMessage message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns StatusStickerInteractionMessage
+             */
+            public static fromObject(object: { [k: string]: any }): E2E.Message.StatusStickerInteractionMessage;
+
+            /**
+             * Creates a plain object from a StatusStickerInteractionMessage message. Also converts values to other types if specified.
+             * @param message StatusStickerInteractionMessage
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: E2E.Message.StatusStickerInteractionMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this StatusStickerInteractionMessage to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for StatusStickerInteractionMessage
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace StatusStickerInteractionMessage {
+
+            /** StatusStickerType enum. */
+            enum StatusStickerType {
+                UNKNOWN = 0,
+                REACTION = 1
             }
         }
 
@@ -29161,6 +29718,109 @@ export namespace AICommon {
         public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
+    /** Properties of a BotMessageSharingInfo. */
+    interface IBotMessageSharingInfo {
+
+        /** BotMessageSharingInfo botEntryPointOrigin */
+        botEntryPointOrigin?: (AICommon.BotMetricsEntryPoint|null);
+
+        /** BotMessageSharingInfo forwardScore */
+        forwardScore?: (number|null);
+    }
+
+    /** Represents a BotMessageSharingInfo. */
+    class BotMessageSharingInfo implements IBotMessageSharingInfo {
+
+        /**
+         * Constructs a new BotMessageSharingInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: AICommon.IBotMessageSharingInfo);
+
+        /** BotMessageSharingInfo botEntryPointOrigin. */
+        public botEntryPointOrigin: AICommon.BotMetricsEntryPoint;
+
+        /** BotMessageSharingInfo forwardScore. */
+        public forwardScore: number;
+
+        /**
+         * Creates a new BotMessageSharingInfo instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns BotMessageSharingInfo instance
+         */
+        public static create(properties?: AICommon.IBotMessageSharingInfo): AICommon.BotMessageSharingInfo;
+
+        /**
+         * Encodes the specified BotMessageSharingInfo message. Does not implicitly {@link AICommon.BotMessageSharingInfo.verify|verify} messages.
+         * @param message BotMessageSharingInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: AICommon.IBotMessageSharingInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified BotMessageSharingInfo message, length delimited. Does not implicitly {@link AICommon.BotMessageSharingInfo.verify|verify} messages.
+         * @param message BotMessageSharingInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: AICommon.IBotMessageSharingInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a BotMessageSharingInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns BotMessageSharingInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): AICommon.BotMessageSharingInfo;
+
+        /**
+         * Decodes a BotMessageSharingInfo message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns BotMessageSharingInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): AICommon.BotMessageSharingInfo;
+
+        /**
+         * Verifies a BotMessageSharingInfo message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a BotMessageSharingInfo message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns BotMessageSharingInfo
+         */
+        public static fromObject(object: { [k: string]: any }): AICommon.BotMessageSharingInfo;
+
+        /**
+         * Creates a plain object from a BotMessageSharingInfo message. Also converts values to other types if specified.
+         * @param message BotMessageSharingInfo
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: AICommon.BotMessageSharingInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this BotMessageSharingInfo to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for BotMessageSharingInfo
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
     /** Properties of a ForwardedAIBotMessageInfo. */
     interface IForwardedAIBotMessageInfo {
 
@@ -31571,6 +32231,9 @@ export namespace AICommon {
 
         /** BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient */
         shouldTriggerAgeCollectionOnClient?: (boolean|null);
+
+        /** BotAgeCollectionMetadata ageCollectionType */
+        ageCollectionType?: (AICommon.BotAgeCollectionMetadata.AgeCollectionType|null);
     }
 
     /** Represents a BotAgeCollectionMetadata. */
@@ -31587,6 +32250,9 @@ export namespace AICommon {
 
         /** BotAgeCollectionMetadata shouldTriggerAgeCollectionOnClient. */
         public shouldTriggerAgeCollectionOnClient: boolean;
+
+        /** BotAgeCollectionMetadata ageCollectionType. */
+        public ageCollectionType: AICommon.BotAgeCollectionMetadata.AgeCollectionType;
 
         /**
          * Creates a new BotAgeCollectionMetadata instance using the specified properties.
@@ -31664,6 +32330,15 @@ export namespace AICommon {
          * @returns The default type url
          */
         public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    namespace BotAgeCollectionMetadata {
+
+        /** AgeCollectionType enum. */
+        enum AgeCollectionType {
+            O18_BINARY = 0,
+            WAFFLE = 1
+        }
     }
 
     /** Properties of a BotImagineMetadata. */
@@ -32245,7 +32920,8 @@ export namespace AICommon {
             RICH_RESPONSE_UNIFIED_DOMAIN_CITATIONS = 42,
             RICH_RESPONSE_UR_INLINE_REELS_ENABLED = 43,
             RICH_RESPONSE_UR_MEDIA_GRID_ENABLED = 44,
-            RICH_RESPONSE_UR_TIMESTAMP_PLACEHOLDER = 45
+            RICH_RESPONSE_UR_TIMESTAMP_PLACEHOLDER = 45,
+            RICH_RESPONSE_IN_APP_SURVEY = 46
         }
     }
 
@@ -35219,8 +35895,10 @@ export namespace AICommon {
         INVOKE_META_AI_GROUP = 30,
         META_AI_FORWARD = 31,
         NEW_CHAT_AI_CONTACT = 32,
-        MESSAGE_QUICK_ACTION = 33,
-        ATTACHMENT_TRAY = 34
+        MESSAGE_QUICK_ACTION_1_ON_1_CHAT = 33,
+        MESSAGE_QUICK_ACTION_GROUP_CHAT = 34,
+        ATTACHMENT_TRAY_1_ON_1_CHAT = 35,
+        ATTACHMENT_TRAY_GROUP_CHAT = 36
     }
 }
 
@@ -35604,7 +36282,8 @@ export namespace StatusAttributions {
                 YOUTUBE = 5,
                 PINTEREST = 6,
                 THREADS = 7,
-                APPLE_MUSIC = 8
+                APPLE_MUSIC = 8,
+                SHARECHAT = 9
             }
         }
 
@@ -36179,7 +36858,8 @@ export namespace StatusAttributions {
             STATUS_MENTION = 4,
             GROUP_STATUS = 5,
             RL_ATTRIBUTION = 6,
-            AI_CREATED = 7
+            AI_CREATED = 7,
+            LAYOUTS = 8
         }
     }
 }
@@ -38203,116 +38883,117 @@ export namespace MmsRetry {
 /** Namespace Web. */
 export namespace Web {
 
-    /** Properties of a GroupHistoryBundleMessage. */
-    interface IGroupHistoryBundleMessage {
+    /** Properties of a GroupHistoryBundleInfo. */
+    interface IGroupHistoryBundleInfo {
 
-        /** GroupHistoryBundleMessage messageHistoryBundle */
-        messageHistoryBundle?: (E2E.Message.IMessageHistoryBundle|null);
+        /** GroupHistoryBundleInfo deprecatedMessageHistoryBundle */
+        deprecatedMessageHistoryBundle?: (E2E.Message.IMessageHistoryBundle|null);
 
-        /** GroupHistoryBundleMessage processState */
-        processState?: (Web.GroupHistoryBundleMessage.ProcessState|null);
+        /** GroupHistoryBundleInfo processState */
+        processState?: (Web.GroupHistoryBundleInfo.ProcessState|null);
     }
 
-    /** Represents a GroupHistoryBundleMessage. */
-    class GroupHistoryBundleMessage implements IGroupHistoryBundleMessage {
+    /** Represents a GroupHistoryBundleInfo. */
+    class GroupHistoryBundleInfo implements IGroupHistoryBundleInfo {
 
         /**
-         * Constructs a new GroupHistoryBundleMessage.
+         * Constructs a new GroupHistoryBundleInfo.
          * @param [properties] Properties to set
          */
-        constructor(properties?: Web.IGroupHistoryBundleMessage);
+        constructor(properties?: Web.IGroupHistoryBundleInfo);
 
-        /** GroupHistoryBundleMessage messageHistoryBundle. */
-        public messageHistoryBundle?: (E2E.Message.IMessageHistoryBundle|null);
+        /** GroupHistoryBundleInfo deprecatedMessageHistoryBundle. */
+        public deprecatedMessageHistoryBundle?: (E2E.Message.IMessageHistoryBundle|null);
 
-        /** GroupHistoryBundleMessage processState. */
-        public processState: Web.GroupHistoryBundleMessage.ProcessState;
+        /** GroupHistoryBundleInfo processState. */
+        public processState: Web.GroupHistoryBundleInfo.ProcessState;
 
         /**
-         * Creates a new GroupHistoryBundleMessage instance using the specified properties.
+         * Creates a new GroupHistoryBundleInfo instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns GroupHistoryBundleMessage instance
+         * @returns GroupHistoryBundleInfo instance
          */
-        public static create(properties?: Web.IGroupHistoryBundleMessage): Web.GroupHistoryBundleMessage;
+        public static create(properties?: Web.IGroupHistoryBundleInfo): Web.GroupHistoryBundleInfo;
 
         /**
-         * Encodes the specified GroupHistoryBundleMessage message. Does not implicitly {@link Web.GroupHistoryBundleMessage.verify|verify} messages.
-         * @param message GroupHistoryBundleMessage message or plain object to encode
+         * Encodes the specified GroupHistoryBundleInfo message. Does not implicitly {@link Web.GroupHistoryBundleInfo.verify|verify} messages.
+         * @param message GroupHistoryBundleInfo message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: Web.IGroupHistoryBundleMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: Web.IGroupHistoryBundleInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified GroupHistoryBundleMessage message, length delimited. Does not implicitly {@link Web.GroupHistoryBundleMessage.verify|verify} messages.
-         * @param message GroupHistoryBundleMessage message or plain object to encode
+         * Encodes the specified GroupHistoryBundleInfo message, length delimited. Does not implicitly {@link Web.GroupHistoryBundleInfo.verify|verify} messages.
+         * @param message GroupHistoryBundleInfo message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: Web.IGroupHistoryBundleMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: Web.IGroupHistoryBundleInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GroupHistoryBundleMessage message from the specified reader or buffer.
+         * Decodes a GroupHistoryBundleInfo message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns GroupHistoryBundleMessage
+         * @returns GroupHistoryBundleInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Web.GroupHistoryBundleMessage;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Web.GroupHistoryBundleInfo;
 
         /**
-         * Decodes a GroupHistoryBundleMessage message from the specified reader or buffer, length delimited.
+         * Decodes a GroupHistoryBundleInfo message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns GroupHistoryBundleMessage
+         * @returns GroupHistoryBundleInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Web.GroupHistoryBundleMessage;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Web.GroupHistoryBundleInfo;
 
         /**
-         * Verifies a GroupHistoryBundleMessage message.
+         * Verifies a GroupHistoryBundleInfo message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GroupHistoryBundleMessage message from a plain object. Also converts values to their respective internal types.
+         * Creates a GroupHistoryBundleInfo message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns GroupHistoryBundleMessage
+         * @returns GroupHistoryBundleInfo
          */
-        public static fromObject(object: { [k: string]: any }): Web.GroupHistoryBundleMessage;
+        public static fromObject(object: { [k: string]: any }): Web.GroupHistoryBundleInfo;
 
         /**
-         * Creates a plain object from a GroupHistoryBundleMessage message. Also converts values to other types if specified.
-         * @param message GroupHistoryBundleMessage
+         * Creates a plain object from a GroupHistoryBundleInfo message. Also converts values to other types if specified.
+         * @param message GroupHistoryBundleInfo
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: Web.GroupHistoryBundleMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: Web.GroupHistoryBundleInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this GroupHistoryBundleMessage to JSON.
+         * Converts this GroupHistoryBundleInfo to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
 
         /**
-         * Gets the default type url for GroupHistoryBundleMessage
+         * Gets the default type url for GroupHistoryBundleInfo
          * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
          * @returns The default type url
          */
         public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
-    namespace GroupHistoryBundleMessage {
+    namespace GroupHistoryBundleInfo {
 
         /** ProcessState enum. */
         enum ProcessState {
-            NOT_DOWNLOADED = 0,
-            DOWNLOADED = 1,
-            DOWNLOAD_FAILED = 2
+            NOT_INJECTED = 0,
+            INJECTED = 1,
+            INJECTED_PARTIAL = 2,
+            INJECTION_FAILED = 3
         }
     }
 
@@ -39543,6 +40224,103 @@ export namespace Web {
 
         /**
          * Gets the default type url for EventAdditionalMetadata
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    /** Properties of an InteractiveMessageAdditionalMetadata. */
+    interface IInteractiveMessageAdditionalMetadata {
+
+        /** InteractiveMessageAdditionalMetadata isGalaxyFlowCompleted */
+        isGalaxyFlowCompleted?: (boolean|null);
+    }
+
+    /** Represents an InteractiveMessageAdditionalMetadata. */
+    class InteractiveMessageAdditionalMetadata implements IInteractiveMessageAdditionalMetadata {
+
+        /**
+         * Constructs a new InteractiveMessageAdditionalMetadata.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: Web.IInteractiveMessageAdditionalMetadata);
+
+        /** InteractiveMessageAdditionalMetadata isGalaxyFlowCompleted. */
+        public isGalaxyFlowCompleted: boolean;
+
+        /**
+         * Creates a new InteractiveMessageAdditionalMetadata instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns InteractiveMessageAdditionalMetadata instance
+         */
+        public static create(properties?: Web.IInteractiveMessageAdditionalMetadata): Web.InteractiveMessageAdditionalMetadata;
+
+        /**
+         * Encodes the specified InteractiveMessageAdditionalMetadata message. Does not implicitly {@link Web.InteractiveMessageAdditionalMetadata.verify|verify} messages.
+         * @param message InteractiveMessageAdditionalMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: Web.IInteractiveMessageAdditionalMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified InteractiveMessageAdditionalMetadata message, length delimited. Does not implicitly {@link Web.InteractiveMessageAdditionalMetadata.verify|verify} messages.
+         * @param message InteractiveMessageAdditionalMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: Web.IInteractiveMessageAdditionalMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an InteractiveMessageAdditionalMetadata message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns InteractiveMessageAdditionalMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Web.InteractiveMessageAdditionalMetadata;
+
+        /**
+         * Decodes an InteractiveMessageAdditionalMetadata message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns InteractiveMessageAdditionalMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Web.InteractiveMessageAdditionalMetadata;
+
+        /**
+         * Verifies an InteractiveMessageAdditionalMetadata message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an InteractiveMessageAdditionalMetadata message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns InteractiveMessageAdditionalMetadata
+         */
+        public static fromObject(object: { [k: string]: any }): Web.InteractiveMessageAdditionalMetadata;
+
+        /**
+         * Creates a plain object from an InteractiveMessageAdditionalMetadata message. Also converts values to other types if specified.
+         * @param message InteractiveMessageAdditionalMetadata
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: Web.InteractiveMessageAdditionalMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this InteractiveMessageAdditionalMetadata to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for InteractiveMessageAdditionalMetadata
          * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
          * @returns The default type url
          */
@@ -41548,8 +42326,11 @@ export namespace Web {
         /** WebMessageInfo groupHistoryIndividualMessageInfo */
         groupHistoryIndividualMessageInfo?: (Web.IGroupHistoryIndividualMessageInfo|null);
 
-        /** WebMessageInfo groupHistoryBundleMessage */
-        groupHistoryBundleMessage?: (Web.IGroupHistoryBundleMessage|null);
+        /** WebMessageInfo groupHistoryBundleInfo */
+        groupHistoryBundleInfo?: (Web.IGroupHistoryBundleInfo|null);
+
+        /** WebMessageInfo interactiveMessageAdditionalMetadata */
+        interactiveMessageAdditionalMetadata?: (Web.IInteractiveMessageAdditionalMetadata|null);
     }
 
     /** Represents a WebMessageInfo. */
@@ -41750,8 +42531,11 @@ export namespace Web {
         /** WebMessageInfo groupHistoryIndividualMessageInfo. */
         public groupHistoryIndividualMessageInfo?: (Web.IGroupHistoryIndividualMessageInfo|null);
 
-        /** WebMessageInfo groupHistoryBundleMessage. */
-        public groupHistoryBundleMessage?: (Web.IGroupHistoryBundleMessage|null);
+        /** WebMessageInfo groupHistoryBundleInfo. */
+        public groupHistoryBundleInfo?: (Web.IGroupHistoryBundleInfo|null);
+
+        /** WebMessageInfo interactiveMessageAdditionalMetadata. */
+        public interactiveMessageAdditionalMetadata?: (Web.IInteractiveMessageAdditionalMetadata|null);
 
         /**
          * Creates a new WebMessageInfo instance using the specified properties.
@@ -42249,7 +43033,10 @@ export namespace SyncAction {
             UWP = 5,
             DARWIN = 6,
             IPAD = 7,
-            WEAROS = 8
+            WEAROS = 8,
+            WASG = 9,
+            WEARM = 10,
+            CAPI = 11
         }
     }
 
@@ -42562,6 +43349,12 @@ export namespace SyncAction {
 
         /** SyncActionValue statusPostOptInNotificationPreferencesAction */
         statusPostOptInNotificationPreferencesAction?: (SyncAction.SyncActionValue.IStatusPostOptInNotificationPreferencesAction|null);
+
+        /** SyncActionValue avatarUpdatedAction */
+        avatarUpdatedAction?: (SyncAction.SyncActionValue.IAvatarUpdatedAction|null);
+
+        /** SyncActionValue galaxyFlowAction */
+        galaxyFlowAction?: (SyncAction.SyncActionValue.IGalaxyFlowAction|null);
     }
 
     /** Represents a SyncActionValue. */
@@ -42764,6 +43557,12 @@ export namespace SyncAction {
 
         /** SyncActionValue statusPostOptInNotificationPreferencesAction. */
         public statusPostOptInNotificationPreferencesAction?: (SyncAction.SyncActionValue.IStatusPostOptInNotificationPreferencesAction|null);
+
+        /** SyncActionValue avatarUpdatedAction. */
+        public avatarUpdatedAction?: (SyncAction.SyncActionValue.IAvatarUpdatedAction|null);
+
+        /** SyncActionValue galaxyFlowAction. */
+        public galaxyFlowAction?: (SyncAction.SyncActionValue.IGalaxyFlowAction|null);
 
         /**
          * Creates a new SyncActionValue instance using the specified properties.
@@ -43152,6 +43951,119 @@ export namespace SyncAction {
              * @returns The default type url
              */
             public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of an AvatarUpdatedAction. */
+        interface IAvatarUpdatedAction {
+
+            /** AvatarUpdatedAction eventType */
+            eventType?: (SyncAction.SyncActionValue.AvatarUpdatedAction.AvatarEventType|null);
+
+            /** AvatarUpdatedAction recentAvatarStickers */
+            recentAvatarStickers?: (SyncAction.SyncActionValue.IStickerAction[]|null);
+        }
+
+        /** Represents an AvatarUpdatedAction. */
+        class AvatarUpdatedAction implements IAvatarUpdatedAction {
+
+            /**
+             * Constructs a new AvatarUpdatedAction.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: SyncAction.SyncActionValue.IAvatarUpdatedAction);
+
+            /** AvatarUpdatedAction eventType. */
+            public eventType: SyncAction.SyncActionValue.AvatarUpdatedAction.AvatarEventType;
+
+            /** AvatarUpdatedAction recentAvatarStickers. */
+            public recentAvatarStickers: SyncAction.SyncActionValue.IStickerAction[];
+
+            /**
+             * Creates a new AvatarUpdatedAction instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns AvatarUpdatedAction instance
+             */
+            public static create(properties?: SyncAction.SyncActionValue.IAvatarUpdatedAction): SyncAction.SyncActionValue.AvatarUpdatedAction;
+
+            /**
+             * Encodes the specified AvatarUpdatedAction message. Does not implicitly {@link SyncAction.SyncActionValue.AvatarUpdatedAction.verify|verify} messages.
+             * @param message AvatarUpdatedAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: SyncAction.SyncActionValue.IAvatarUpdatedAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified AvatarUpdatedAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.AvatarUpdatedAction.verify|verify} messages.
+             * @param message AvatarUpdatedAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: SyncAction.SyncActionValue.IAvatarUpdatedAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an AvatarUpdatedAction message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns AvatarUpdatedAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SyncAction.SyncActionValue.AvatarUpdatedAction;
+
+            /**
+             * Decodes an AvatarUpdatedAction message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns AvatarUpdatedAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SyncAction.SyncActionValue.AvatarUpdatedAction;
+
+            /**
+             * Verifies an AvatarUpdatedAction message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an AvatarUpdatedAction message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns AvatarUpdatedAction
+             */
+            public static fromObject(object: { [k: string]: any }): SyncAction.SyncActionValue.AvatarUpdatedAction;
+
+            /**
+             * Creates a plain object from an AvatarUpdatedAction message. Also converts values to other types if specified.
+             * @param message AvatarUpdatedAction
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: SyncAction.SyncActionValue.AvatarUpdatedAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this AvatarUpdatedAction to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for AvatarUpdatedAction
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace AvatarUpdatedAction {
+
+            /** AvatarEventType enum. */
+            enum AvatarEventType {
+                UPDATED = 0,
+                CREATED = 1,
+                DELETED = 2
+            }
         }
 
         /** Properties of a BotWelcomeRequestAction. */
@@ -45178,6 +46090,111 @@ export namespace SyncAction {
                  * @returns The default type url
                  */
                 public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+        }
+
+        /** Properties of a GalaxyFlowAction. */
+        interface IGalaxyFlowAction {
+
+            /** GalaxyFlowAction type */
+            type: SyncAction.SyncActionValue.GalaxyFlowAction.GalaxyFlowActionType;
+        }
+
+        /** Represents a GalaxyFlowAction. */
+        class GalaxyFlowAction implements IGalaxyFlowAction {
+
+            /**
+             * Constructs a new GalaxyFlowAction.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: SyncAction.SyncActionValue.IGalaxyFlowAction);
+
+            /** GalaxyFlowAction type. */
+            public type: SyncAction.SyncActionValue.GalaxyFlowAction.GalaxyFlowActionType;
+
+            /**
+             * Creates a new GalaxyFlowAction instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GalaxyFlowAction instance
+             */
+            public static create(properties?: SyncAction.SyncActionValue.IGalaxyFlowAction): SyncAction.SyncActionValue.GalaxyFlowAction;
+
+            /**
+             * Encodes the specified GalaxyFlowAction message. Does not implicitly {@link SyncAction.SyncActionValue.GalaxyFlowAction.verify|verify} messages.
+             * @param message GalaxyFlowAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: SyncAction.SyncActionValue.IGalaxyFlowAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GalaxyFlowAction message, length delimited. Does not implicitly {@link SyncAction.SyncActionValue.GalaxyFlowAction.verify|verify} messages.
+             * @param message GalaxyFlowAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: SyncAction.SyncActionValue.IGalaxyFlowAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GalaxyFlowAction message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GalaxyFlowAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SyncAction.SyncActionValue.GalaxyFlowAction;
+
+            /**
+             * Decodes a GalaxyFlowAction message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GalaxyFlowAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SyncAction.SyncActionValue.GalaxyFlowAction;
+
+            /**
+             * Verifies a GalaxyFlowAction message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GalaxyFlowAction message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GalaxyFlowAction
+             */
+            public static fromObject(object: { [k: string]: any }): SyncAction.SyncActionValue.GalaxyFlowAction;
+
+            /**
+             * Creates a plain object from a GalaxyFlowAction message. Also converts values to other types if specified.
+             * @param message GalaxyFlowAction
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: SyncAction.SyncActionValue.GalaxyFlowAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GalaxyFlowAction to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for GalaxyFlowAction
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace GalaxyFlowAction {
+
+            /** GalaxyFlowActionType enum. */
+            enum GalaxyFlowActionType {
+                LAUNCH = 1
             }
         }
 
@@ -50276,6 +51293,9 @@ export namespace DeviceCapabilities {
 
         /** DeviceCapabilities businessBroadcast */
         businessBroadcast?: (DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast|null);
+
+        /** DeviceCapabilities userHasAvatar */
+        userHasAvatar?: (DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null);
     }
 
     /** Represents a DeviceCapabilities. */
@@ -50295,6 +51315,9 @@ export namespace DeviceCapabilities {
 
         /** DeviceCapabilities businessBroadcast. */
         public businessBroadcast?: (DeviceCapabilities.DeviceCapabilities.IBusinessBroadcast|null);
+
+        /** DeviceCapabilities userHasAvatar. */
+        public userHasAvatar?: (DeviceCapabilities.DeviceCapabilities.IUserHasAvatar|null);
 
         /**
          * Creates a new DeviceCapabilities instance using the specified properties.
@@ -50571,6 +51594,103 @@ export namespace DeviceCapabilities {
 
             /**
              * Gets the default type url for LIDMigration
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a UserHasAvatar. */
+        interface IUserHasAvatar {
+
+            /** UserHasAvatar userHasAvatar */
+            userHasAvatar?: (boolean|null);
+        }
+
+        /** Represents a UserHasAvatar. */
+        class UserHasAvatar implements IUserHasAvatar {
+
+            /**
+             * Constructs a new UserHasAvatar.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: DeviceCapabilities.DeviceCapabilities.IUserHasAvatar);
+
+            /** UserHasAvatar userHasAvatar. */
+            public userHasAvatar: boolean;
+
+            /**
+             * Creates a new UserHasAvatar instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns UserHasAvatar instance
+             */
+            public static create(properties?: DeviceCapabilities.DeviceCapabilities.IUserHasAvatar): DeviceCapabilities.DeviceCapabilities.UserHasAvatar;
+
+            /**
+             * Encodes the specified UserHasAvatar message. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.UserHasAvatar.verify|verify} messages.
+             * @param message UserHasAvatar message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: DeviceCapabilities.DeviceCapabilities.IUserHasAvatar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified UserHasAvatar message, length delimited. Does not implicitly {@link DeviceCapabilities.DeviceCapabilities.UserHasAvatar.verify|verify} messages.
+             * @param message UserHasAvatar message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: DeviceCapabilities.DeviceCapabilities.IUserHasAvatar, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a UserHasAvatar message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns UserHasAvatar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): DeviceCapabilities.DeviceCapabilities.UserHasAvatar;
+
+            /**
+             * Decodes a UserHasAvatar message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns UserHasAvatar
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): DeviceCapabilities.DeviceCapabilities.UserHasAvatar;
+
+            /**
+             * Verifies a UserHasAvatar message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a UserHasAvatar message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns UserHasAvatar
+             */
+            public static fromObject(object: { [k: string]: any }): DeviceCapabilities.DeviceCapabilities.UserHasAvatar;
+
+            /**
+             * Creates a plain object from a UserHasAvatar message. Also converts values to other types if specified.
+             * @param message UserHasAvatar
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: DeviceCapabilities.DeviceCapabilities.UserHasAvatar, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this UserHasAvatar to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for UserHasAvatar
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
